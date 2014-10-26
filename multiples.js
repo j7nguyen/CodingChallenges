@@ -13,12 +13,9 @@
 // 16
 // 32
 
-// var fs  = require("fs");
+var fs  = require("fs");
 
-var fs = "13,8\n17,16"
-
-// fs.readFileSync(process.argv[2]).toString().split('\n').forEach(function (line) {
-fs.toString().split('\n').forEach(function (line) {
+fs.readFileSync(process.argv[2]).toString().split('\n').forEach(function (line) {
 	    if (line != "") {
         var nums = line.split(',')
 				nums.forEach(function (num, ind, arr) {
@@ -26,10 +23,11 @@ fs.toString().split('\n').forEach(function (line) {
 				});
 				a = nums[0];
 				b = nums[1];
-				for (var i = b; i < a; i *= 2) {
-					b = i;
+				var least_mult = b
+				for (var i = 1; least_mult < a; i++ ) {
+					least_mult = b*(i+1);
 				}
-				console.log(b);
+				console.log(least_mult);
     }
 });
 
